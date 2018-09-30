@@ -49,7 +49,7 @@ def turn_count(board)
   board.count do |count|
     if count == 'X' || count == 'O'
     turn += 1
-  end
+    end
   end
 end
 
@@ -72,23 +72,23 @@ def won?(board)
    return false
 end
 
-  def full?(board)
+def full?(board)
      board.all?{|token| token == "X" || token == "O"}
-  end
+end
 
-  def draw?(board)
+def draw?(board)
     full?(board) && !won?(board)
-  end
+end
 
-  def over?(board)
+def over?(board)
     full?(board) || won?(board)
-  end
+end
 
-  def winner(board)
+def winner(board)
     if winning_move = won?(board)
       board[winning_move.first]
     end
-  end
+end
 
 def play(board)
   counter = 0
@@ -100,4 +100,5 @@ def play(board)
     end
   end
 end
+
 end
