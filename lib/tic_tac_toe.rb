@@ -1,5 +1,5 @@
 WIN_COMBINATIONS = [
-  [0, 1, 2], 
+  [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
   [0, 3, 6],
@@ -47,22 +47,22 @@ end
 end
 
 def turn_count(board)
-  turn = 0 
-  board.count do |count| 
+  turn = 0
+  board.count do |count|
     if count == 'X' || count == 'O'
-    turn += 1 
+    turn += 1
   end
 end
 end
 
 def current_player(board)
-  if turn_count(board) % 2 == 0  
+  if turn_count(board) % 2 == 0
     "X"
-  else turn_count(board) % 2 == 1 
+  else turn_count(board) % 2 == 1
     "O"
   end
 end
-  
+
 def won?(board)
     WIN_COMBINATIONS.each do |win_move|
       if board[win_move[0]] == "X" && board[win_move[1]] == "X" && board[win_move[2]]== "X"
@@ -71,33 +71,33 @@ def won?(board)
         return win_move
       end
    end
-   return false 
+   return false
 end
 
   def full?(board)
      board.all?{|token| token == "X" || token == "O"}
   end
-  
+
   def draw?(board)
     full?(board) && !won?(board)
   end
-  
+
   def over?(board)
     full?(board) || won?(board)
   end
-  
+
   def winner(board)
     if winning_move = won?(board)
       board[winning_move.first]
     end
   end
-  
+
 def play(board)
-  counter = 0 
+  counter = 0
   loop do
-    counter += 1 
+    counter += 1
     turn(board)
-    if counter >= 9 
+    if counter >= 9
       break
     end
   end
