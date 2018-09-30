@@ -101,5 +101,3 @@ def play(board)
       break
     end
   end
-  
-end
